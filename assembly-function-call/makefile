@@ -1,4 +1,4 @@
-target : cpp.s c.s cpp-o2.s c-o2.s
+target : cpp.s c.s cpp-o2.s c-o2.s c-no-protector.s
 
 cpp.s : cpp.cpp
 	g++ cpp.cpp -o cpp -fno-stack-protector
@@ -9,12 +9,16 @@ c.s : c.c
 	objdump -d c > c.s
 
 cpp-o2.s :  cpp.cpp
-	g++ cpp.cpp -o cpp-o2 -O2
+	g++ cpp.cpp -o cpp-o2 -O2 -fno-stack-protector
 	objdump -d cpp-o2 > cpp-o2.s
 
 c-o2.s : c.c
-	gcc c.c -o c-o2 -O2
+	gcc c.c -o c-o2 -O2 -fno-stack-protector
 	objdump -d c-o2 > c-o2.s
+
+c-no-protector.s : c.c
+	gcc c.c -o c-no-protector
+	objdump -d c-no-protector > c-no-protector.s
 
 clean : 
 	rm c.s c cpp.s cpp cpp-o2 cpp-o2.s c-o2 c-o2.s
