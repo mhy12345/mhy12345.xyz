@@ -1,4 +1,5 @@
 #include<cstdio>
+#include<iostream>
 using namespace std;
 #define BUFFER_SIZE 5
 
@@ -9,5 +10,5 @@ int getbuf() {
 }
 int main() {
 	int t = getbuf();
-	printf("%d\n",t);
+	cout<<t<<endl;
 }

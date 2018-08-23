@@ -1,11 +1,11 @@
 target : cpp.s c.s cpp-o2.s c-o2.s
 
 cpp.s : cpp.cpp
-	g++ cpp.cpp -o cpp
+	g++ cpp.cpp -o cpp -fno-stack-protector
 	objdump -d cpp > cpp.s
 
 c.s : c.c
-	gcc c.c -o c
+	gcc c.c -o c -fno-stack-protector
 	objdump -d c > c.s
 
 cpp-o2.s :  cpp.cpp
