@@ -1,5 +1,5 @@
 
-c-no-protector:     file format elf64-x86-64
+c-with-protector:     file format elf64-x86-64
 
 
 Disassembly of section .init:
